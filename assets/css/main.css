@@ -921,13 +921,24 @@ section,
   margin: 0;
 }
 
+
+.content .descendo .fst-italic{
+  margin-bottom: 40px;
+}
+
+.content .descendo{
+  margin-top: 160px;
+}
+
 .about .fst-italic {
+  font-size: 18px;
   color: color-mix(in srgb, var(--default-color), var(--contrast-color) 50%);
 }
 
 .about .content ul {
   list-style: none;
   padding: 0;
+  font-size: 18px;
 }
 
 .about .content ul li {
@@ -945,6 +956,7 @@ section,
 
 .about .content p:last-child {
   margin-bottom: 0;
+  font-size: 18px;
 }
 
 .about .pulsating-play-btn {
