@@ -927,7 +927,11 @@ section,
 }
 
 .content .descendo{
-  margin-top: 160px;
+  margin-top: 80px;
+}
+
+.content .imgOndeEraVideo{
+  margin-top: 30px;
 }
 
 .about .fst-italic {
