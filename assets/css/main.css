@@ -1517,7 +1517,7 @@ section,
 }
 
 /*--------------------------------------------------------------
-# Gallery Section
+# Gallery Section (Modernizada)
 --------------------------------------------------------------*/
 .gallery {
   overflow: hidden;
@@ -1525,6 +1525,35 @@ section,
 
 .gallery .swiper-wrapper {
   height: auto;
+  align-items: center;
+  transition: transform 0.5s ease; /* Adiciona transição suave ao deslizar */
+}
+
+.gallery .swiper-slide {
+  text-align: center;
+  border-radius: 10px; /* Adiciona bordas arredondadas */
+  transition: all 0.3s ease; /* Adiciona transição suave para todos os efeitos */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Adiciona sombra suave */
+}
+
+.gallery .swiper-slide a {
+  display: block;
+  width: 100%;
+  height: 0;
+  padding-bottom: 100%; /* Mantém a proporção quadrada (1:1) */
+  position: relative;
+  overflow: hidden;
+}
+
+.gallery .swiper-slide img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: all 0.3s ease; /* Adiciona transição suave à imagem também */
 }
 
 .gallery .swiper-pagination {
@@ -1538,6 +1567,7 @@ section,
   width: 12px;
   height: 12px;
   opacity: 1;
+  transition: background-color 0.3s ease; /* Transição na mudança de cor do bullet */
 }
 
 .gallery .swiper-pagination .swiper-pagination-bullet-active {
@@ -1545,10 +1575,7 @@ section,
   opacity: 1;
 }
 
-.gallery .swiper-slide-active {
-  text-align: center;
-}
-
+/* Estilos para o slide ativo */
 @media (min-width: 992px) {
   .gallery .swiper-wrapper {
     padding: 40px 0;
@@ -1560,12 +1587,23 @@ section,
     padding: 4px;
     z-index: 1;
     transform: scale(1.2);
-    transition: none;
+    transition: transform 0.5s ease; /* Transição suave para o zoom */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Aumenta a sombra no slide ativo */
+  }
+
+  .gallery .swiper-slide-active img {
+    transition: all 0.5s ease; /* Garante que a transição da imagem seja suave */
+  }
+
+  /* Estilo para slides inativos (opcional: desfoque) */
+  .gallery .swiper-slide:not(.swiper-slide-active) {
+    filter: blur(0px); /* Remova ou ajuste o valor para adicionar desfoque */
+    opacity: 0.8; /* Reduz um pouco a opacidade dos slides inativos */
   }
 }
 
 /*--------------------------------------------------------------
-# Contact Section
+# Contact Section (Atualizado para Formulário Trabalhe Conosco)
 --------------------------------------------------------------*/
 .contact .info-item {
   background-color: var(--surface-color);
@@ -1629,7 +1667,9 @@ section,
 
 .contact .php-email-form input[type=text],
 .contact .php-email-form input[type=email],
-.contact .php-email-form textarea {
+.contact .php-email-form input[type=tel], /* Adicionado estilo para o campo de telefone */
+.contact .php-email-form textarea,
+.contact .php-email-form input[type=file] { /* Adicionado estilo para o campo de arquivo */
   color: var(--default-color);
   background-color: color-mix(in srgb, var(--surface-color), transparent 50%);
   border-color: color-mix(in srgb, var(--default-color), transparent 80%);
@@ -1641,14 +1681,22 @@ section,
 
 .contact .php-email-form input[type=text]:focus,
 .contact .php-email-form input[type=email]:focus,
-.contact .php-email-form textarea:focus {
+.contact .php-email-form input[type=tel]:focus, /* Adicionado estilo para o campo de telefone */
+.contact .php-email-form textarea:focus,
+.contact .php-email-form input[type=file]:focus { /* Adicionado estilo para o campo de arquivo */
   border-color: var(--accent-color);
 }
 
 .contact .php-email-form input[type=text]::placeholder,
 .contact .php-email-form input[type=email]::placeholder,
+.contact .php-email-form input[type=tel]::placeholder, /* Adicionado estilo para o campo de telefone */
 .contact .php-email-form textarea::placeholder {
   color: color-mix(in srgb, var(--default-color), transparent 70%);
+}
+
+/* Corrigindo a cor do placeholder do campo de telefone */
+.contact .php-email-form input[name="phone"]::placeholder {
+    color: color-mix(in srgb, var(--default-color), transparent 70%);
 }
 
 .contact .php-email-form button[type=submit] {
